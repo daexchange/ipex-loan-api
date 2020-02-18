@@ -1,0 +1,35 @@
+package ai.turbochain.ipex.coin;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
+
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class CoinExchangeFactory {
+    @Setter
+    private HashMap<String,BigDecimal> coins;
+
+    public HashMap<String,BigDecimal> getCoins(){
+        return coins;
+    }
+
+    public CoinExchangeFactory(){
+        coins = new HashMap<>();
+    }
+
+
+    /**
+     * 获取币种价格
+     * @param symbol
+     * @return
+     */
+    public BigDecimal get(String symbol){
+        return coins.get(symbol);
+    }
+
+    public void  set(String symbol,BigDecimal rate){
+        coins.put(symbol,rate);
+    }
+}
